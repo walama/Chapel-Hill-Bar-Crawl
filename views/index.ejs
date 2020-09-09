@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chapel Hill Bar Crawl</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  </head>
+  <body>
+    <section class ="hero is-fullheight is-info">
+        <div class=" hero-head columns  is-centered">
+            <div class="column is-half has-text-centered">
+                <h1 class="title is-1 has-text-white">Chapel Hill Bar Crawl</h1>
+                <p class= "subtitle is-2 has-text-white">Helping you save money at <%= count %> Chapel Hill bars and counting!</p>
+            </div>
+        </div>
+        <div class= " hero-body columns">
+            <div class= "column"></div>
+            <div class="column has-text-centered has-background-white">
+                <ul>
+                    <% for(let i = 0; i< bars.length; i+=2) { %>
+                        <div><a class="is-size-1" href =<%="bar/"+ids[i]%>> <%= bars[i] %></a></div> 
+                    <% }; %>
+                </ul>
+            </div>
+            <div class="column has-text-centered has-background-white">
+                <ul>
+                    <% for(let i = 1; i< bars.length; i+=2) { %>
+                        <div><a class="is-size-1" href =<%="bar/"+ids[i]%>> <%= bars[i] %></a></div> 
+                    <% }; %>
+                </ul>
+            </div>
+            <div class= "column"></div>
+        </div>
+    </section>
+  </body>
+</html>

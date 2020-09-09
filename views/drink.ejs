@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chapel Hill Bar Crawl</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  </head>
+  <body>
+    <div class="header has-background-info">
+        <a class= "subtitle is-5 has-text-white" href="/">Home</a>
+        <div class="columns is-mobile is-centered">
+            <div class="column is-half has-text-centered">
+                <h1 class="has-text-white title is-1"><%=data[0].drink%></h1>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class= "columns">
+            <div class="column"></div>
+            <div class="column">
+                <ul>
+                    <p>Bar</p>
+                    <% for(let i = 0; i< data.length; i++) { %>
+                    <div><p> <a href =<%="/bar/"+data[i].bar_id%>><strong><%=data[i].bar%></strong></a></p></div> 
+                    <% }; %>
+                </ul>
+            </div>
+            <div class="column">
+                <ul>
+                    <p>Price</p>
+                    <% for(let i = 0; i< data.length; i++) { %>
+                    <div><p> $<%=data[i].price%></p></div> 
+                    <% }; %>
+                </ul>
+            </div>
+            <div class="column">
+                <ul>
+                    <p>Ounces</p>
+                    <% for(let i = 0; i< data.length; i++) { %>
+                    <div><p> <%=data[i].ounces%></p></div> 
+                    <% }; %>
+                </ul>
+
+            </div>
+            <div class="column">
+                <ul>
+                    <p>Price per Ounce</p>
+                    <% for(let i = 0; i< data.length; i++) { %>
+                    <div><p> $<%=data[i].ppo%></p></div> 
+                    <% }; %>
+                </ul>
+
+            </div>
+            <div class="column"></div>
+        </div>
+    </div>
+  </body>
+</html>
