@@ -41,7 +41,7 @@ app.get("/bar/:id", function(req, res){
 });
 
 app.get("/drink/:id", function(req, res){
-    var q = 'SELECT bar, bar_id, price, ounces, price/ounces AS ppo, drink FROM drinks'+
+    var q = 'SELECT bar, bar_id, drink_type, price, ounces, (100*price)/(ounces*apv) AS ppo, drink FROM drinks'+
             ' JOIN bars'+
             ' ON drinks.drink = (SELECT drink FROM drinks WHERE id = ' + req.params.id+
             ') AND bar_id = bars.id'+
@@ -50,6 +50,18 @@ app.get("/drink/:id", function(req, res){
         if (error) throw error;
         console.log(results);
         res.render("drink", {data: results})
+    }); 
+});
+
+app.get("/type/:drink_type", function(req, res){
+    var q = 'SELECT bar, bar_id, drink_type, price, ounces, (100*price)/(apv*ounces) AS ppo, drink FROM drinks'+
+            ' JOIN bars'+
+            ' ON drinks.drink_type =  "' + req.params.drink_type+'" AND bar_id = bars.id'+
+            ' ORDER BY ppo;';
+    connection.query(q, function (error, results) {
+        if (error) throw error;
+        console.log(results);
+        res.render("type", {data: results})
     }); 
 });
 

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -12,8 +11,7 @@
         <a class= "subtitle is-5 has-text-white" href="/">Home</a>
         <div class="columns is-mobile is-centered">
             <div class="column is-half has-text-centered">
-                <h1 class="has-text-white title is-1"><%=data[0].bar%></h1>
-                <p class= "has-text-white subtitle is-2"><%=data[0].comments%></p>
+                <h1 class="has-text-white title is-1"><%=data[0].drink_type%></h1>
             </div>
         </div>
     </div>
@@ -30,6 +28,14 @@
             </div>
             <div class="column">
                 <ul>
+                    <p>Bar</p>
+                    <% for(let i = 0; i< data.length; i++) { %>
+                    <div><p> <a href =<%="/bar/"+data[i].bar_id%>><strong><%=data[i].bar%></strong></a></p></div> 
+                    <% }; %>
+                </ul>
+            </div>
+            <div class="column">
+                <ul>
                     <p>Price</p>
                     <% for(let i = 0; i< data.length; i++) { %>
                     <div><p> $<%=data[i].price%></p></div> 
@@ -38,44 +44,24 @@
             </div>
             <div class="column">
                 <ul>
-                    <p>Type</p>
+                    <p>Ounces</p>
                     <% for(let i = 0; i< data.length; i++) { %>
-                        <div><p> <a href =<%="/type/"+data[i].drink_type%>><strong><%=data[i].drink_type%></strong></a></p></div>
+                    <div><p> <%=data[i].ounces%></p></div> 
                     <% }; %>
                 </ul>
 
             </div>
             <div class="column">
-                <p>Ounces</p>
-                <% for(let i = 0; i< data.length; i++) { %>
-                <div><p> <%=data[i].ounces%></p></div> 
-                <% }; %>
-            </ul>
+                <ul>
+                    <p>Price per Ounce</p>
+                    <% for(let i = 0; i< data.length; i++) { %>
+                    <div><p> $<%=data[i].ppo%></p></div> 
+                    <% }; %>
+                </ul>
 
-            </div>
-            <div class="column">
-                <ul>
-                    <p>APV</p>
-                    <% for(let i = 0; i< data.length; i++) { %>
-                    <div><p> <%=data[i].apv%></p></div> 
-                    <% }; %>
-                </ul>
-            </div>
-            <div class="column">
-                <ul>
-                    <p>Deal</p>
-                    <% for(let i = 0; i< data.length; i++) { %>
-                    <div><p> <%=data[i].deal%></p></div> 
-                    <% }; %>
-                </ul>
             </div>
             <div class="column"></div>
-
         </div>
     </div>
-    <div class="container">
-        <h1 class="subtitle is-2">Vibes: <%=data[0].vibes %>/5 </h1>
-    </div>
-
   </body>
 </html>
