@@ -58,7 +58,7 @@ def insert_drinks(drink_objs):
         cursor.execute(sql, vals)
         mydb.commit()
 
-    #print contents of updated table
+    #log contents of updated table
 
     cursor.execute("SELECT * FROM drinks;")
     
